@@ -6,7 +6,7 @@ import argparse
 
 # parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("flutter_type", type=str)
+ap.add_argument("flutter_type", type=int)
 ap.add_argument("code", type=int)
 ap.add_argument("code1", type=int)
 ap.add_argument("s3", type=int)
@@ -14,14 +14,13 @@ ap.add_argument("s4", type=float)
 args = ap.parse_args()
 
 
-
-if args.flutter_type == 'Numerical':
-    p = ['demo_flutter', 'input_0.sel.png', str(args.code), str(args.s3), '1', str(args.s4), '1', \
+if args.flutter_type == 0:
+    p = ['demo_flutter', 'input_0.png', str(args.code), str(args.s3), '1', str(args.s4), '1', \
         'Imacquired.png', 'ImReconstructed.png', 'Groundtruth.png', 'Imdiff.png', \
             'code.txt', 'TF_code.txt']
     subprocess.run(p)
 else:
-    p = ['demo_flutter', 'input_0.sel.png', str(args.code1), \
+    p = ['demo_flutter', 'input_0.png', str(args.code1), \
         str(args.s3), '0', str(args.s4), '1', \
         'Imacquired.png', 'ImReconstructed.png', 'Groundtruth.png', 'Imdiff.png', \
             'code.txt', 'TF_code.txt']
