@@ -27,31 +27,28 @@ else:
     subprocess.run(p)
 
 p = subprocess.Popen(['gnuplot','-p'], shell=True, stdin=subprocess.PIPE,)
-p.stdin.write( ' set lmargin 10 ;  set rmargin 10 \n')
-p.stdin.write( ' set xlabel "k" \n')
-p.stdin.write( ' set ylabel "Gain" \n')
-p.stdin.write( ' set sample 1000  \n')
-p.stdin.write( ' set terminal png \n')
-p.stdin.write( ' set output "'+'code.png" \n')
-p.stdin.write( ' set key on  below box title "Legend" \n')
-p.stdin.write( ' set key left Left reverse \n ' )
-p.stdin.write( ' plot "'+'code.txt" with steps title \
+p.stdin.write(b'set lmargin 10 ; set rmargin 10\n')
+p.stdin.write(b'set xlabel "k" \n')
+p.stdin.write(b'set ylabel "Gain" \n')
+p.stdin.write(b'set sample 1000  \n')
+p.stdin.write(b'set terminal png \n')
+p.stdin.write(b'set output "'+'code.png" \n')
+p.stdin.write(b'set key on  below box title "Legend" \n')
+p.stdin.write(b'set key left Left reverse \n ' )
+p.stdin.write(b'plot "'+'code.txt" with steps title \
 "Flutter shutter function" linewidth 1.5 \n' )
-p.stdin.write(' exit \n')
+p.stdin.write(b'exit \n')
 
-p = subprocess.Popen(['gnuplot','-p'],
-                shell=True,
-                stdin=subprocess.PIPE,
-                )
-p.stdin.write( ' set lmargin 10 ;  set rmargin 10 \n')
-p.stdin.write( ' set xlabel "xi" \n')
-p.stdin.write( ' set ylabel "Fourier tranform (modulus)" \n')
-p.stdin.write( ' set sample 1000  \n')
-p.stdin.write( ' set terminal png \n')
-p.stdin.write( ' set output "' +'TF_code.png" \n')
-p.stdin.write( ' set key on  below box title "Legend" \n')
-p.stdin.write( ' set key left Left reverse \n ' )
-p.stdin.write( ' plot "' +'TF_code.txt" using 1:2 with \
+p = subprocess.Popen(['gnuplot','-p'], shell=True, stdin=subprocess.PIPE,)
+p.stdin.write(b'set lmargin 10 ;  set rmargin 10 \n')
+p.stdin.write(b'set xlabel "xi" \n')
+p.stdin.write(b'set ylabel "Fourier tranform (modulus)" \n')
+p.stdin.write(b'set sample 1000  \n')
+p.stdin.write(b'set terminal png \n')
+p.stdin.write(b'set output "' +'TF_code.png" \n')
+p.stdin.write(b'set key on  below box title "Legend" \n')
+p.stdin.write(b'set key left Left reverse \n ' )
+p.stdin.write(b'plot "' +'TF_code.txt" using 1:2 with \
 lines title "Fourier transform (modulus) of the flutter function"\
 linewidth 1.5 \n' )
 
